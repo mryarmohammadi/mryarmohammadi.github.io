@@ -18,13 +18,11 @@
 :root {
     --bg: #ffffff;
     --text: #111111;
-    --border: #000000;
 }
 
 body.dark {
     --bg: #000000;
     --text: #ffffff;
-    --border: #ffffff;
 }
 
 body {
@@ -71,7 +69,7 @@ body {
     height: 240px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--border);
+    border: 4px solid var(--text);
     margin-bottom: 25px;
 }
 
@@ -93,13 +91,16 @@ p {
     gap: 10px;
     margin: 10px 0;
     padding: 12px;
-    border: 1px solid var(--border);
     border-radius: 10px;
     text-decoration: none;
-    color: var(--text);
     font-weight: bold;
     transition: 0.3s;
 }
+
+/* رنگ اصلی اپ‌ها */
+.links a.email { color: #D44638; border: 1px solid #D44638; }
+.links a.instagram { color: #E1306C; border: 1px solid #E1306C; }
+.links a.telegram { color: #0088cc; border: 1px solid #0088cc; }
 
 .links a:hover {
     opacity: 0.7;
@@ -207,15 +208,15 @@ function showEN() {
         </p>
     </div>
 
-    <!-- لینک‌ها با آیکون و رنگ اصلی اپ‌ها -->
+    <!-- لینک‌ها با رنگ اصلی اپ‌ها -->
     <div class="links fade">
-        <a href="mailto:mfyhmfyhmfyh@gmail.com">
+        <a href="mailto:mfyhmfyhmfyh@gmail.com" class="email">
             <i class="fa-solid fa-envelope"></i> Email
         </a>
-        <a href="https://instagram.com/mfyh_1030" target="_blank">
+        <a href="https://instagram.com/mfyh_1030" target="_blank" class="instagram">
             <i class="fa-brands fa-instagram"></i> Instagram
         </a>
-        <a href="https://t.me/mfyh_1030" target="_blank">
+        <a href="https://t.me/mfyh_1030" target="_blank" class="telegram">
             <i class="fa-brands fa-telegram"></i> Telegram
         </a>
     </div>
