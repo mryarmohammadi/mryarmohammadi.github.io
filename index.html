@@ -8,7 +8,10 @@
 
 <title>محمدرضا یارمحمدی</title>
 
+<!-- فونت نستعلیق -->
 <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+<!-- آیکون‌ها -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -47,18 +50,32 @@ body {
     font-size: 1.2rem;
 }
 
+.logo-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logo-name img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
 .profile-img {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--border);
-    margin: 30px 0 25px;
+    margin-bottom: 25px;
 }
 
 h1 {
     font-size: 2.2rem;
-    margin-bottom: 15px;
+    margin: 0;
 }
 
 p {
@@ -102,6 +119,15 @@ p {
     direction: ltr;
     font-family: Arial, sans-serif;
 }
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 0.7s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
 </style>
 
 <script>
@@ -123,20 +149,29 @@ function showEN() {
 
 <body>
 
+<!-- دکمه حالت شب/روز -->
 <div class="toggle" onclick="toggleMode()">
     <i class="fa-solid fa-moon"></i>
 </div>
 
 <div class="container">
 
+    <!-- سوییچ زبان با پرچم -->
     <div class="lang-switch">
-        <span onclick="showFA()">FA</span> | <span onclick="showEN()">EN</span>
+        <span onclick="showFA()">🇮🇷 FA</span> | <span onclick="showEN()">🇬🇧 EN</span>
     </div>
 
-    <img src="profile.jpg" class="profile-img" alt="Profile Photo">
-
-    <div class="fa">
+    <!-- لوگو کنار اسم -->
+    <div class="logo-name">
+        <img src="logo.png" alt="لوگو">
         <h1>محمدرضا یارمحمدی</h1>
+    </div>
+
+    <!-- عکس پروفایل -->
+    <img src="profile.jpg" class="profile-img fade" alt="Profile Photo">
+
+    <!-- فارسی -->
+    <div class="fa fade">
         <p>
             علاقه‌مند به ادبیات و فعال در حوزه رمان و کتاب‌خوانی.  
             دانش‌آموز رشته علوم انسانی.  
@@ -144,8 +179,8 @@ function showEN() {
         </p>
     </div>
 
-    <div class="en">
-        <h1>Mohammadreza Yarmohammadi</h1>
+    <!-- انگلیسی -->
+    <div class="en fade">
         <p>
             Interested in literature and actively engaged in novels and reading culture.  
             Humanities student.  
@@ -153,12 +188,16 @@ function showEN() {
         </p>
     </div>
 
-    <div class="links">
+    <!-- لینک‌ها با آیکون و رنگ اصلی اپ‌ها -->
+    <div class="links fade">
         <a href="mailto:mfyhmfyhmfyh@gmail.com">
             <i class="fa-solid fa-envelope"></i> Email
         </a>
         <a href="https://instagram.com/mfyh_1030" target="_blank">
             <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+        <a href="https://t.me/mfyh_1030" target="_blank">
+            <i class="fa-brands fa-telegram"></i> Telegram
         </a>
     </div>
 
