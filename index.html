@@ -4,35 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- تایید گوگل -->
 <meta name="google-site-verification" content="F0ed6WvIYNC0Qrj-R0rtPpGuq_HSk9ca4MXCSjg3oKA" />
 
 <title>محمدرضا یارمحمدی</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --border: #000000;
+}
+
+body.dark {
+    --bg: #000000;
+    --text: #ffffff;
+    --border: #ffffff;
+}
 
 body {
     margin: 0;
-    padding: 25px 15px;
+    padding: 30px 15px;
     font-family: 'Amiri', serif;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg);
+    color: var(--text);
     text-align: center;
+    transition: 0.3s;
 }
 
 .container {
-    max-width: 420px;
+    max-width: 430px;
     margin: auto;
 }
 
+.toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
 .profile-img {
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #fff;
-    margin-bottom: 25px;
+    border: 4px solid var(--border);
+    margin: 30px 0 25px;
 }
 
 h1 {
@@ -43,46 +64,102 @@ h1 {
 p {
     font-size: 1.1rem;
     line-height: 2;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .links a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin: 10px 0;
     padding: 12px;
-    border: 1px solid #888;
-    border-radius: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
     text-decoration: none;
-    color: #fff;
+    color: var(--text);
     font-weight: bold;
     transition: 0.3s;
 }
 
 .links a:hover {
-    background-color: #222;
+    opacity: 0.7;
+}
+
+.lang-switch {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.lang-switch span {
+    cursor: pointer;
+    margin: 0 10px;
+    text-decoration: underline;
+}
+
+.en {
+    display: none;
+    direction: ltr;
+    font-family: Arial, sans-serif;
 }
 </style>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle('dark');
+}
+
+function showFA() {
+    document.querySelector('.fa').style.display = 'block';
+    document.querySelector('.en').style.display = 'none';
+}
+
+function showEN() {
+    document.querySelector('.fa').style.display = 'none';
+    document.querySelector('.en').style.display = 'block';
+}
+</script>
 </head>
 
 <body>
 
+<div class="toggle" onclick="toggleMode()">
+    <i class="fa-solid fa-moon"></i>
+</div>
+
 <div class="container">
 
-    <!-- عکس پروفایل -->
-       <img src="profile.jpg" alt="profile.jpg" class="profile-img">
+    <div class="lang-switch">
+        <span onclick="showFA()">FA</span> | <span onclick="showEN()">EN</span>
+    </div>
 
-    <h1>محمدرضا یارمحمدی</h1>
+    <img src="profile.jpg" class="profile-img" alt="Profile Photo">
 
-    <p>
-        محمدرضا یارمحمدی فعال در حوزه رمان و کتابخوانی.  
-        محصل رشته انسانی.  
-        مسلط به زبان ترکی (استانبولی) و زبان انگلیسی.  
-        وی ساکن تهران می‌باشد.
-    </p>
+    <div class="fa">
+        <h1>محمدرضا یارمحمدی</h1>
+        <p>
+            علاقه‌مند به ادبیات و فعال در حوزه رمان و کتاب‌خوانی.  
+            دانش‌آموز رشته علوم انسانی.  
+            مسلط به زبان ترکی استانبولی و زبان انگلیسی.
+        </p>
+    </div>
+
+    <div class="en">
+        <h1>Mohammadreza Yarmohammadi</h1>
+        <p>
+            Interested in literature and actively engaged in novels and reading culture.  
+            Humanities student.  
+            Fluent in Turkish (Istanbul) and English.
+        </p>
+    </div>
 
     <div class="links">
-        <a href="mailto:mfyhmfyhmfyh@gmail.com">ایمیل ارتباطی</a>
-        <a href="https://instagram.com/mfyh_1030" target="_blank">اینستاگرام</a>
+        <a href="mailto:mfyhmfyhmfyh@gmail.com">
+            <i class="fa-solid fa-envelope"></i> Email
+        </a>
+        <a href="https://instagram.com/mfyh_1030" target="_blank">
+            <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
     </div>
 
 </div>
