@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="google-site-verification" content="F0ed6WvIYNC0Qrj-R0rtPpGuq_HSk9ca4MXCSjg3oKA">
+
+  <title>محمدرضا یارمحمدی</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --card: #111111;
+      --text: #f5f5f5;
+      --gold: #d6a44a;
+      --gold-light: #f0c875;
+      --border: rgba(214, 164, 74, 0.35);
+
+      --email: #ea4335;
+      --instagram: #e1306c;
+      --telegram: #229ed9;
+      --phone: #25d366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(214,164,74,0.08), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Amiri", serif;
+      display: flex;
+      justify-content: center;
+      transition: 0.3s ease;
+    }
+
+    body.light {
+      --bg: #f4f1ea;
+      --card: #ffffff;
+      --text: #171717;
+      --border: rgba(150,110,35,0.25);
+
+      background:
+        radial-gradient(circle at top, rgba(214,164,74,0.12), transparent 35%),
+        var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      padding: 35px 22px 25px;
+      text-align: center;
+    }
+
+    /* دکمه تغییر حالت */
+    .theme-button {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+
+      width: 50px;
+      height: 50px;
+
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+
+      background: rgba(17,17,17,0.8);
+      color: var(--gold-light);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 19px;
+      cursor: pointer;
+
+      transition: 0.25s ease;
+      z-index: 10;
+    }
+
+    .theme-button:hover {
+      transform: translateY(-2px);
+      background: var(--gold);
+      color: #111;
+    }
+
+    body.light .theme-button {
+      background: rgba(255,255,255,0.8);
+    }
+
+    /* زبان */
+    .language {
+      margin-bottom: 25px;
+      color: #999;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      direction: ltr;
+    }
+
+    .language span {
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .language .active {
+      color: var(--gold-light);
+      font-weight: bold;
+    }
+
+    .language .separator {
+      margin: 0 8px;
+      color: #555;
+    }
+
+    /* لوگو + نام */
+    .identity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+    }
+
+    .name {
+      color: var(--gold-light);
+      font-size: 28px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* عکس پروفایل */
+    .profile {
+      width: min(430px, 82vw);
+      aspect-ratio: 1 / 1;
+
+      margin: 0 auto 32px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      padding: 7px;
+
+      background: var(--card);
+
+      box-shadow:
+        0 0 0 1px rgba(214,164,74,0.15),
+        0 15px 45px rgba(0,0,0,0.35);
+    }
+
+    /* کارت‌های تماس */
+    .contact-grid {
+      width: 100%;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 18px;
+    }
+
+    .contact-card {
+      min-height: 190px;
+      aspect-ratio: 1 / 1;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.035),
+          rgba(255,255,255,0.01)
+        ),
+        var(--card);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 13px;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.04),
+        transparent 65%
+      );
+
+      opacity: 0;
+      transition: 0.25s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    .contact-card i {
+      position: relative;
+      z-index: 1;
+
+      font-size: 40px;
+
+      transition: 0.25s ease;
+    }
+
+    .contact-card span {
+      position: relative;
+      z-index: 1;
+
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    /* رنگ ایمیل */
+    .email {
+      border-color: rgba(234,67,53,0.45);
+    }
+
+    .email i {
+      color: var(--email);
+    }
+
+    .email:hover {
+      border-color: var(--email);
+      box-shadow: 0 10px 30px rgba(234,67,53,0.12);
+    }
+
+    /* رنگ اینستاگرام */
+    .instagram {
+      border-color: rgba(225,48,108,0.45);
+    }
+
+    .instagram i {
+      color: var(--instagram);
+    }
+
+    .instagram:hover {
+      border-color: var(--instagram);
+      box-shadow: 0 10px 30px rgba(225,48,108,0.12);
+    }
+
+    /* رنگ تلگرام */
+    .telegram {
+      border-color: rgba(34,158,217,0.45);
+    }
+
+    .telegram i {
+      color: var(--telegram);
+    }
+
+    .telegram:hover {
+      border-color: var(--telegram);
+      box-shadow: 0 10px 30px rgba(34,158,217,0.12);
+    }
+
+    /* رنگ تماس */
+    .phone {
+      border-color: rgba(37,211,102,0.45);
+    }
+
+    .phone i {
+      color: var(--phone);
+    }
+
+    .phone:hover {
+      border-color: var(--phone);
+      box-shadow: 0 10px 30px rgba(37,211,102,0.12);
+    }
+
+    /* فوتر */
+    footer {
+      margin-top: 38px;
+      padding-top: 18px;
+
+      border-top: 1px solid rgba(214,164,74,0.25);
+
+      color: #777;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      direction: ltr;
+    }
+
+    /* موبایل */
+    @media (max-width: 500px) {
+
+      .container {
+        padding: 28px 14px 20px;
+      }
+
+      .theme-button {
+        width: 44px;
+        height: 44px;
+
+        top: 13px;
+        left: 13px;
+      }
+
+      .identity {
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+
+      .logo {
+        width: 65px;
+        height: 65px;
+      }
+
+      .name {
+        font-size: 23px;
+      }
+
+      .profile {
+        width: 78vw;
+        padding: 6px;
+        margin-bottom: 25px;
+      }
+
+      .contact-grid {
+        gap: 11px;
+      }
+
+      .contact-card {
+        min-height: 0;
+        border-radius: 14px;
+        gap: 8px;
+      }
+
+      .contact-card i {
+        font-size: 30px;
+      }
+
+      .contact-card span {
+        font-size: 16px;
+      }
+
+      footer {
+        margin-top: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="theme-button" onclick="toggleTheme()" aria-label="تغییر حالت">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <main class="container">
+
+    <!-- تغییر زبان -->
+    <div class="language">
+      <span class="active">FA</span>
+      <span class="separator">|</span>
+      <span>EN</span>
+    </div>
+
+    <!-- لوگو و نام -->
+    <div class="identity">
+
+      <!-- لوگو را با فایل logo.png جایگزین کن -->
+      <img
+        src="logo.png"
+        alt="Logo"
+        class="logo"
+      >
+
+      <h1 class="name">
+        محمدرضا یارمحمدی
+      </h1>
+
+    </div>
+
+    <!-- عکس پروفایل را با profile.jpg جایگزین کن -->
+    <img
+      src="profile.jpg"
+      alt="محمدرضا یارمحمدی"
+      class="profile"
+    >
+
+    <!-- کارت‌های تماس -->
+    <div class="contact-grid">
+
+      <!-- ایمیل -->
+      <a
+        href="mailto:mfyhmfyhmfyh@gmail.com"
+        class="contact-card email"
+        aria-label="Email"
+      >
+        <i class="fa-solid fa-envelope"></i>
+        <span>ایمیل</span>
+      </a>
+
+      <!-- اینستاگرام -->
+      <a
+        href="https://instagram.com/mfyh_1030"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-card instagram"
+        aria-label="Instagram"
+      >
+        <i class="fa-brands fa-instagram"></i>
+        <span>اینستاگرام</span>
+      </a>
+
+      <!-- تلگرام -->
+      <a
+        href="https://t.me/mfyh_1030"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-card telegram"
+        aria-label="Telegram"
+      >
+        <i class="fa-brands fa-telegram"></i>
+        <span>تلگرام</span>
+      </a>
+
+      <!-- تماس -->
+      <a
+        href="tel:09210579354"
+        class="contact-card phone"
+        aria-label="تماس"
+      >
+        <i class="fa-solid fa-phone"></i>
+        <span>تماس</span>
+      </a>
+
+    </div>
+
+    <footer>
+      © 2026 Mohammadreza Yarmohammadi
+    </footer>
+
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+
+      const buttonIcon = document.querySelector(".theme-button i");
+
+      if (document.body.classList.contains("light")) {
+        buttonIcon.className = "fa-solid fa-sun";
+        localStorage.setItem("theme", "light");
+      } else {
+        buttonIcon.className = "fa-solid fa-moon";
+        localStorage.setItem("theme", "dark");
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      const buttonIcon = document.querySelector(".theme-button i");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light");
+        buttonIcon.className = "fa-solid fa-sun";
+      }
+    });
+  </script>
+
+</body>
+</html>
